@@ -1,0 +1,7 @@
+name: 'Demo Action'
+description: 'A harmless demo action'
+runs:
+  using: "composite"
+  steps:
+    - run: echo "Harmless step executed."
+      shell: bash
